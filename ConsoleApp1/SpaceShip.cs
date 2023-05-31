@@ -26,12 +26,12 @@ namespace ConsoleApp1
 
             return new SpaceShip()
             {
-
-                Name = args[0],
-                Type = args[1],
-                Speed = int.Parse(args[2]),
-                Vfuel = int.Parse(args[3]),
-                Refuel = int.Parse(args[4])
+                
+                Name = args[1],
+                Type = args[2],
+                Speed = int.Parse(args[3]),
+                Vfuel = int.Parse(args[4]),
+                Refuel = int.Parse(args[5])
 
             };
 

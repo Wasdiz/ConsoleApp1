@@ -8,6 +8,7 @@ namespace ConsoleApp1
         public static List<SpaceShip> SpaceShips = new List<SpaceShip>();
         public static void Main()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             LoadShips();
             
 
@@ -29,6 +30,7 @@ namespace ConsoleApp1
                         }
                     case "2":
                         {
+                            Console.Clear();
                             ShowShips();
                             break;
                         }
@@ -46,6 +48,7 @@ namespace ConsoleApp1
                         }
                     case "5":
                         {
+                            Console.Clear();
                             Console.WriteLine("Goodbye");
                             IsExit = true;
                             break;
@@ -89,7 +92,13 @@ namespace ConsoleApp1
 
         }
 
-        public static void ShowShips() => SpaceShips.ForEach(Console.WriteLine);
+        public static void ShowShips() {
+            Console.WriteLine("------------------");
+           for(int i = 0;i < SpaceShips.Count; i++)
+                Console.WriteLine($"{i+1}. " + SpaceShips[i]);
+            Console.WriteLine("------------------");
+
+        }
 
         public static void EditShip()
         {
@@ -113,8 +122,10 @@ namespace ConsoleApp1
 
         public static void SaveShip()
         {
-            var Ships = SpaceShips.Select(s => s.ToString()).ToList();
-            File.WriteAllLines("DataShip.txt",Ships);
+            var Ships = new List<string>();
+            for (int i = 0; i < SpaceShips.Count; i++)
+                Ships.Add($"{i + 1}. " + SpaceShips[i]);
+                File.WriteAllLines("DataShip.txt",Ships);
 
         }
 
